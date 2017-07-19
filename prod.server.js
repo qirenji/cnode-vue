@@ -1,20 +1,21 @@
 var express = require('express');
+var fs = require('fs')
 // var config = require('./config/index.js');
 
 var port = process.env.PORT || 18000;
 
 var app = express();
 
-var router = express.Router();
-
-router.get('/', function (req, res, next) {
-	req.url = '/index.html';
-	next();
-});
-
-app.use(router);
+// app.set('views','./dist')
+// app.engine('.html', require('ejs').__express);
+// app.set('view engine', 'html');
 
 app.use(express.static('./dist'));
+
+app.get('/',function(req,res){
+	res.render('index.html',{})
+})
+
 
 module.exports = app.listen(port, function (err) {
 	if (err) {
