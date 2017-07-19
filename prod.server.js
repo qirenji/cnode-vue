@@ -6,16 +6,11 @@ var port = process.env.PORT || 18000;
 
 var app = express();
 
-// app.set('views','./dist')
-// app.engine('.html', require('ejs').__express);
-// app.set('view engine', 'html');
-
 app.use(express.static('./dist'));
 
-// app.get('/',function(req,res){
-// 	res.render('index.html',{})
-// })
-
+app.get("/",function(req,res){
+	res.render('index.html',{})
+})
 
 module.exports = app.listen(port, function (err) {
 	if (err) {
