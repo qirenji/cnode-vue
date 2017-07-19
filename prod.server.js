@@ -1,12 +1,12 @@
 var express = require('express');
-var config = require('./config/index.js');
+// var config = require('./config/index.js');
 
-var port = process.env.PORT || config.build.port;
+var port = process.env.PORT || 18000;
 
 var app = express();
 
 var router = express.Router();
-console.log(config);
+
 router.get('/', function (req, res, next) {
 	req.url = '/index.html';
 	next();
