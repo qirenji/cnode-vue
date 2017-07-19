@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "cnode",
-      "script": "build/dev-server.js",
+      "script": "prod.server.js",
       "env": {
         "COMMON_VARIABLE": "true"
       },
