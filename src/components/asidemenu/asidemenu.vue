@@ -135,6 +135,8 @@
 					letter-spacing: 8px;
 				}
 				i {
+					position: relative;
+					top: 5px;
           display: inline-block;
           width: 22px;
           height: 22px;

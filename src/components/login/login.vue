@@ -99,6 +99,7 @@ export default {
       i.icon-back {
         position: absolute;
         left: 10px;
+        top: 11px;
         display: inline-block;
         width: 38px;
         height: 38px;

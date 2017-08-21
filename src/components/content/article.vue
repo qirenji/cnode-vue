@@ -368,9 +368,10 @@ import {formatDate} from 'common/js/date.js';
                 }
               }
             }
-            // .reply-content {
-            // 	padding: 0px,30px;
-            // }
+            .reply-content {
+            	// background: red;
+              padding: 0 15px;
+            }
 
             .reply-one {
               width: 100%;

@@ -7,7 +7,7 @@
 					<img :src="item.author.avatar_url" alt="">
 				</div>
 				<div class="title">
-					<p>
+					<p class="text">
 						<span class="flag" :class="{special: item.top || item.good}">
 							{{(item.top ? '置顶' : '') || (item.good ? '精华': '') || types[item.tab]}}</span>
 						<router-link :to="{name: 'article', params: {id: item.id}}">{{item.title}}</router-link>
@@ -86,10 +86,11 @@ import {formatDate} from 'common/js/date.js';
 				font-size: 15px;
 				overflow: hidden;
 				padding-top: 15px;
-				p{
-					width: 95%;
-          text-overflow: ellipsis;
-          white-space: nowrap;
+				.text {
+					width: 90%;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
           .flag{
           	background-color: #e5e5e5;
           	font-size: 80%;
@@ -104,11 +105,12 @@ import {formatDate} from 'common/js/date.js';
           a {
           	color: #000;
           	&:hover{text-decoration: underline;
-						line-height: rem;
+						line-height: 1rem;
           	}
           }
 				}
 				.view {
+					width: 95%;
 					position: relative;
 					font-size: 85%;
 					color:gray;
