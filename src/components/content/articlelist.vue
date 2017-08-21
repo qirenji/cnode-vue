@@ -66,6 +66,7 @@ import {formatDate} from 'common/js/date.js';
 		position: relative;
 		z-index: 1;
 		.item {
+			padding-left: 2%;
 			width: 100%;
 			height: 60px;
 			display: flex;
@@ -118,7 +119,7 @@ import {formatDate} from 'common/js/date.js';
 					padding-left: 40px;
 					.date{
 						position: absolute;
-						right: 40px;
+						right: 12%;
 					}
 				}
 

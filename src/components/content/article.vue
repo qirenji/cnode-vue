@@ -318,7 +318,8 @@ import {formatDate} from 'common/js/date.js';
           padding-top: 5px;
           padding-bottom: 8px;
             .reply-author {
-              padding-left: 10px;
+              // padding-left: 10px;
+              padding: 0 3%;
               .reply-avatar {
                 display: flex;
                 width: 100%;
