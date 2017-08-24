@@ -1,4 +1,5 @@
 <template lang="html">
+<!-- 新建话题页面 -->
   <div class="new-article">
 
     <div class="new-header">

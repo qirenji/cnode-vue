@@ -1,5 +1,5 @@
 <template>
-
+<!-- 侧边栏页面信息 -->
 	<div class="aside-menu" v-show="isShowAsideMenu">
 		<div class="menu">
 			<div class="user" @click="InfoOrLogin">

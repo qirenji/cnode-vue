@@ -1,4 +1,5 @@
 <template>
+<!-- 关于 页面信息 -->
 	<div class="about">
 		<i @click="showAbout" class="close"></i>
 		<div class="about-content">

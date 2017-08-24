@@ -7,10 +7,11 @@
 
     <AsideMenu></AsideMenu>
 
+    <!-- 登录界面 -->
     <transition name="show">
       <Login v-if="isShowLogin"></Login>
     </transition>
-
+    
     <transition name="show">
       <Msg v-if="isShowMsg"></Msg>
     </transition>

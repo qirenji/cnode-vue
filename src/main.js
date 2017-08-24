@@ -25,15 +25,18 @@ const store = new Vuex.Store({
 		isShowMsg: false,
 		isShowNewArticle: false,
 		isShowAbout: false,
+		// 存储用户信息到本地
 		userInfo: localStorage.userInfo && JSON.parse(localStorage.userInfo) || {avatar_url: '', id: '', loginname: '', success: false},
 		ak: localStorage.ak || ''
 	},
 	mutations: {
+		//切换tab
 		changeTab(state,payload) {
 			state.isLoading = payload.hasOwnProperty('isLoading')? payload.isLoading : state.isLoading;
 			state.tab = payload.type || state.tab;
 			state.articleList = payload.articleList || state.articleList;
 		},
+		//
 		changeMore(state,flag) {
 			state.isMore = flag;
 		},
