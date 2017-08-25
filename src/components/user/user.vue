@@ -2,6 +2,7 @@
   <div class="user">
       <div class="info">
 
+        <!-- 个人信息 -->
         <transition name="slide-fade">
           <div v-show="isShowContent" class="info-content">
             <div class="info-register">
@@ -23,7 +24,8 @@
                 注册于：{{user.create_at | formatDate }}
               </div>
             </div>
-
+            
+            <!-- 个人收藏 -->
             <div class="info-collect">
               <div @click="toggleCollect1" class="collect-title">
                 收藏的话题
@@ -43,6 +45,7 @@
               </div>
             </div>
 
+            <!-- 参与的话题 -->
             <div class="info-collect">
               <div @click="toggleCollect2" class="collect-title">
                 最近参与的话题
@@ -62,6 +65,7 @@
               </div>
             </div>
 
+            <!-- 创建的话题 -->
             <div class="info-collect">
               <div @click="toggleCollect3" class="collect-title">
                 最近创建的话题
@@ -110,7 +114,7 @@ export default {
   },
   created() {
     this.$store.commit('showAsideMenu', false);
-    // 收藏
+    // 获取收藏信息
     this.axios.get(`https://cnodejs.org/api/v1/topic_collect/${this.$route.params.name}`)
       .then(result => result.data.data)
       .then(collectTopics => this.collectTopics = collectTopics)

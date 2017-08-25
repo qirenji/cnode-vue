@@ -14,8 +14,11 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
 	state: {
+		// 默认选择all标签
 		tab: 'all',
+		// 文章列表
 		articleList: [],
+		// 话题
 		collectTopics: [],
 		isLoading: false,
 		isMore: false,
@@ -25,8 +28,9 @@ const store = new Vuex.Store({
 		isShowMsg: false,
 		isShowNewArticle: false,
 		isShowAbout: false,
-		// 存储用户信息到本地
+		// 用户信息
 		userInfo: localStorage.userInfo && JSON.parse(localStorage.userInfo) || {avatar_url: '', id: '', loginname: '', success: false},
+		// assesstoken
 		ak: localStorage.ak || ''
 	},
 	mutations: {
@@ -36,7 +40,6 @@ const store = new Vuex.Store({
 			state.tab = payload.type || state.tab;
 			state.articleList = payload.articleList || state.articleList;
 		},
-		//
 		changeMore(state,flag) {
 			state.isMore = flag;
 		},
@@ -64,16 +67,18 @@ const store = new Vuex.Store({
 		updateUserInfo(state, userInfo) {
 			state.userInfo = userInfo;
 		},
+		//更新accesstoken
 		updateAk(state,ak) {
 			state.ak = ak;
 		},
+		// 更新话题
 		updateCollect(state,collectTopics) {
 			state.collectTopics = collectTopics;
 		}
 
 	}
 })
-
+// 关闭生产模式下给出的提示
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

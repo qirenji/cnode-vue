@@ -12,18 +12,22 @@
       <Login v-if="isShowLogin"></Login>
     </transition>
     
+    <!-- 我的消息 -->
     <transition name="show">
       <Msg v-if="isShowMsg"></Msg>
     </transition>
 
+    <!-- 发布话题 -->
     <transition name="show">
       <NewArticle v-if="isShowNewArticle"></NewArticle>
     </transition>
 
+    <!-- 个人中心 -->
     <transition name="show">
       <Info v-if="isShowInfo"></Info>
     </transition>
 
+    <!-- 关于 -->
     <transition name="show">
       <About v-if="isShowAbout"></About>
     </transition>

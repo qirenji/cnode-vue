@@ -36,6 +36,7 @@ export default {
       this.$store.commit('showLogin',false);
       // this.$store.commit('showMsg',false);
     },
+    // 验证accesstoken
     check(ak) {
       if(!ak.trim()) {
         return;

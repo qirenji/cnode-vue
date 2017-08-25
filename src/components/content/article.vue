@@ -3,7 +3,7 @@
 	<div class="article-detail">
 
 		<div class="body" v-show="!isLoading">
-
+      <!-- 文章内容 -->
 			<div class="article">
 
 				<div class="article-title">
@@ -15,13 +15,14 @@
 		
 				<div v-html="infos.content" class="content"></div>
 			</div>
-
+      <!-- 回复 -->
 			<div class="reply">
+        <!-- 收藏和回复按钮 -->
 				<div class="other">
 					<div @click="collect" class="collect"><i :class="[isCollected ? 'collected' : 'collected-no']"></i>收藏文章</div>
 					<div class="total-reply">{{infos.reply_count}} 回复</div>
 				</div>
-
+        <!-- 回复内容 -->
 				<div v-for="(item, index) of replies" class="reply-item">
 
           <div class="reply-author">
@@ -36,9 +37,9 @@
               </div>
             </div>
           </div>
-
+          
           <div v-html="item.content" class="reply-content"></div>
-
+          <!-- 回复框 -->
           <transition name="slide-top">
             <div class="reply-one" v-show="currentIndex===index">
               <textarea v-model.trim="replyOneContent" class="replay-one-text" placeholder="请输入回复内容"></textarea>
@@ -49,7 +50,7 @@
 
 
         </div>
-
+        <!-- 回复框 -->
 				<div class="reply-input">
 					<div class="replay-title">添加回复</div>
 					<textarea v-model.trim="replyContent" class="replay-text" placeholder="请输入回复内容"></textarea>
@@ -85,6 +86,7 @@ import {formatDate} from 'common/js/date.js';
 			}
 		},
 		filters: {
+      // 全局filters,格式化时间
 			formatDate(time) {
 				return formatDate(time);
 			}
@@ -107,6 +109,7 @@ import {formatDate} from 'common/js/date.js';
 			this.$store.commit('viewArticle', true);
 			this.$store.commit('showInfo',false);
 			this.$store.commit('showAsideMenu',false);
+      // 获取文章内容
 			this.axios.get('https://cnodejs.org/api/v1/topic/' + this.id)
 				.then(result => result.data.data)
 				.then(data => this.infos = data)
@@ -114,6 +117,7 @@ import {formatDate} from 'common/js/date.js';
 				.then(() => this.$store.commit('viewArticle',false))
 				.then(() => {
 					this.oImgs = document.querySelector('.content').querySelectorAll('img');
+          // 给图片添加点击
 					for(let img of this.oImgs){
 						img.onclick = () =>location.href = img.src;
 					}
@@ -123,6 +127,7 @@ import {formatDate} from 'common/js/date.js';
 			if(!this.ak) {
 				return;
 			}
+      // 判断用户是否收藏
 			this.axios.get(`https://cnodejs.org/api/v1/topic_collect/${this.userInfo.loginname}`)
       .then(result => result.data.data)
       .then(collectTopics => {
@@ -133,6 +138,7 @@ import {formatDate} from 'common/js/date.js';
       })
 		},
 		methods: {
+      // 点赞操作
 			ups(index, upsId, item) {
 				if(!this.ak) {
 					this.$store.commit('showLogin',true);
@@ -142,6 +148,7 @@ import {formatDate} from 'common/js/date.js';
 					alert('不能自己为自己点赞哦😯')
 					return
 				}
+        // 向服务器发送点赞操作
 				this.axios.post(`https://cnodejs.org/api/v1/reply/${upsId}/ups`,{accesstoken: this.ak})
 					.then(result => {
 						if(result.data.success){
@@ -152,12 +159,14 @@ import {formatDate} from 'common/js/date.js';
 						}
 					})
 			},
+      // 收藏话题
 			collect() {
 				// console.log(localStorage)
       if (!this.ak) {
         this.$store.commit('showLogin', true);
         return;
       }
+      // 发送至服务器
       if (!this.isCollected) {
         this.axios.post(`https://cnodejs.org/api/v1/topic_collect/collect`, {
           accesstoken: this.ak,
@@ -179,16 +188,19 @@ import {formatDate} from 'common/js/date.js';
         })
       	}
     	},
+      // 显示回复文本框
     	showTextArea(index) {
     		this.currentIndex = index;
     		this.replyOneContent = `@`+this.replies[index].author.loginname;
     	},
+      // 回复操作
     	reply(id,name) {
     		if(!this.ak) {
     			this.$store.commit('showLogin', true);
     			return;
     		}
     		else if(!id) {
+          // 回复给作者
     			this.axios.post(`https://cnodejs.org/api/v1/topic/${this.id}/replies`, {
           accesstoken: this.ak,
           content: this.replyContent})
@@ -202,6 +214,7 @@ import {formatDate} from 'common/js/date.js';
           	})
        	 })
     		}else {
+          // 回复给某个人
     			this.axios.post(`https://cnodejs.org/api/v1/topic/${this.id}/replies`, {
           accesstoken: this.ak,
           content: this.replyOneContent,

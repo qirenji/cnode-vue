@@ -1,6 +1,6 @@
 <template>
+	<!-- 文章列表 -->
 	<div class="article-list">
-	
 		<transition-group name="slide-top">
 			<div v-for="(item, index) of articleList" :key="item.last_reply_at+index" class="item">
 				<div class="avatar">

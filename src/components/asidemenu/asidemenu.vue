@@ -44,8 +44,9 @@
 			isShowAsideMenu() {
 				return this.$store.state.isShowAsideMenu;
 			},
+			// 用户信息
 			userInfo() {
-				console.log(this.$store.state.userInfo);
+				// console.log(this.$store.state.userInfo);
 				return this.$store.state.userInfo;
 			}
 		},

@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-
+    <!-- 消息列表 -->
 		<div class="msg-list">
 
       <transition-group name="show">

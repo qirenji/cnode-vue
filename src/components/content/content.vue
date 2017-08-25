@@ -28,13 +28,15 @@
 			</li>
 		</ul>
 
+		<!-- 加载中 -->
 		<div ref="article" @scroll="scroll($event)" class="article">
       <div class="loading">
         <i v-show="isLoading" class="icon-loading"></i>
       </div>
         <router-view></router-view>
     </div>
-	
+		
+		<!-- 回到顶部 -->
 		<transition name="slide-fade">
       <div v-show="isShowTop" class="top">
         <i @click.stop.prevent="toTop" class="icon-top"></i>
@@ -67,21 +69,25 @@
     	}
 		},
 		methods:{
+			// 切换tab
 			changeTab(type,page=1) {
 				this.$store.commit('changeTab',{type:type,articleList:[], isLoading:true});
 				this.axios.get(`https://cnodejs.org/api/v1/topics?page=${page}&tab=${type}`)
 					.then(result => result.data.data)
 					.then(articleList => this.$store.commit('changeTab',{type:type, articleList:articleList, isLoading: false}))
 			},
+			// 滚动时的操作
 			scroll(event) {
-      if (event.target.clientHeight > event.target.scrollTop) {
-        this.isShowTop = false;
-      } else {
-        this.isShowTop = true;
-      }
+				// 显示回到顶部按钮
+	      if (event.target.clientHeight > event.target.scrollTop) {
+	        this.isShowTop = false;
+	      } else {
+	        this.isShowTop = true;
+	      }
 	      if (this.$route.path !== '/') {
 	        return;
 	      } else if(!this.over) {
+	      	// 加载更多
 	        let flag =  event.target.clientHeight + event.target.scrollTop === event.target.scrollHeight;
 	        if (flag) {
 	          this.$store.commit('changeMore', true);
@@ -100,6 +106,7 @@
 	        }
 	      }
     	},
+    	// 回到顶部
     	toTop() {
 	      if (this.$refs.article.scrollTop <= 0) {
 	        return;

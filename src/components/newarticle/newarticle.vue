@@ -53,6 +53,7 @@ export default {
     showNewArticle() {
       this.$store.commit('showNewArticle', false)
     },
+    // 新建话题-发送至服务器
     send() {
       if (!this.ak) {
         this.$store.commit('showLogin', true);

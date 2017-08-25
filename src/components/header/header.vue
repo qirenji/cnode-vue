@@ -25,6 +25,7 @@
 			showMsg() {
 				this.$store.commit('showMsg', true);
 			},
+			// 退出登陆
 			signout() {
 				this.signOutConfirm = confirm('确认退出登录吗？');
 				if(this.signOutConfirm){
@@ -39,6 +40,7 @@
 			}
 		},
 		created() {
+			// 如果有登陆过，自动登陆
 			if(!this.ak) {
 				return;
 			}
