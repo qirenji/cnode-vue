@@ -43,7 +43,7 @@ vue练习项目，利用cnode社区提供的api实现，需去cnode个人中心�
 
 发布话题页
 
-![发布话题页](/img/cnode-vue/newartical.png)
+![发布话题页](http://www.qirenji.info/img/cnode-vue/newartical.png)
 ## 技术栈
 - **Vue2.0**：前端页面展示。
 - **Vue-cli**：vue手脚架工具。
