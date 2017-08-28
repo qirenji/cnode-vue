@@ -27,19 +27,19 @@ vue练习项目，利用cnode社区提供的api实现，需去cnode个人中心�
 
 首页
 
-![首页](/img/cnode-vue/page.png)
+![首页](http://www.qirenji.info/img/cnode-vue/page.png)
 
 文章详情页
 
-![文章详情页](/img/cnode-vue/pagelist.png)
+![文章详情页](http://www.qirenji.info/img/cnode-vue/pagelist.png)
 
 侧边栏
 
-![侧边栏](/img/cnode-vue/aside.png)
+![侧边栏](http://www.qirenji.info/img/cnode-vue/aside.png)
 
 回复页面
 
-![回复页面](/img/cnode-vue/replay.png)
+![回复页面](http://www.qirenji.info/img/cnode-vue/replay.png)
 
 发布话题页
 
