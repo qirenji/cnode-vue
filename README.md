@@ -2,7 +2,7 @@
 
 > vue.js编写的cnode社区
 
-博客地址：http://www.qirenji.info/2017/08/01/Vue.js开源的CNode社区/
+博客地址：http://www.qirenji.info/2017/08/01/Vue-js开源的CNode社区/
 
 ``` bash
 npm install -----安装依赖
